@@ -9,6 +9,7 @@ public class Advertisement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String title;
     private String description;
 
     @ManyToOne
@@ -18,12 +19,21 @@ public class Advertisement {
 
     }
 
-    public Advertisement(String description) {
+    public Advertisement(String title, String description) {
+        this.title = title;
         this.description = description;
     }
 
-    public long id() {
+    public long getId() {
         return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {

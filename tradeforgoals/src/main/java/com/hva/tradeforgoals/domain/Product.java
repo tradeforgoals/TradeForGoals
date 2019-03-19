@@ -9,6 +9,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String title;
     private String description;
 
     @Lob
@@ -24,13 +25,22 @@ public class Product {
 
     }
 
-    public Product(String description, byte[] pictures) {
+    public Product(String title, String description, byte[] pictures) {
+        this.title = title;
         this.description = description;
         this.pictures = pictures;
     }
 
     public long getId() {
         return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {

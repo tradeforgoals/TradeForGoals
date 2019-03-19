@@ -25,7 +25,6 @@ public class Trade {
         return id;
     }
 
-
     public long getProviderId() {
         return providerId;
     }

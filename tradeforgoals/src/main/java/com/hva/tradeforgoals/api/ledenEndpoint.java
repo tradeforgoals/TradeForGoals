@@ -47,7 +47,7 @@ public class ledenEndpoint {
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateLid(@PathParam("id") Long id, Lid lid) {
         Lid result = ledenService.findById(id);
-        Boolean change = true;
+
         if (lid == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -56,10 +56,30 @@ public class ledenEndpoint {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        if (change) {
+        if (!(lid.getFirstname().equals(result.getFirstname())) || !(lid.getLastname().equals(result.getLastname())) ||
+                !(lid.getEmail().equals(result.getEmail())) || !(lid.getZipcode().equals(result.getZipcode())) ||
+                lid.getHousenumber() != result.getHousenumber()){
+
             ledenService.save(lid);
             return Response.ok().build();
-        } else return Response.notModified().build();
+        }
+        else{
+            return Response.notModified().build();
+        }
 
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response deleteLid(@PathParam("id") Long id){
+
+        Lid lid = ledenService.findById(id);
+
+        if (lid == null){
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }else {
+            ledenService.deleteById(id);
+        }
+        return Response.accepted().build();
     }
 }

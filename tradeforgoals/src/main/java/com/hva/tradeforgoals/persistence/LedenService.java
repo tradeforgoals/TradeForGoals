@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class LedenService {
+public class LedenService{
 
     @Autowired
     private LedenRepository ledenRepository;
@@ -31,6 +31,10 @@ public class LedenService {
 
     public Lid save(Lid lid) {
         return ledenRepository.save(lid);
+    }
+
+    public void deleteById(long id) {
+        ledenRepository.deleteById(id);
     }
 }
 
