@@ -13,9 +13,9 @@ ARG server_port=8080
 # Build stage
 #
 COPY src /home/app/src
-COPY application-properties-replace.sh /home/app/application-properties-replace.sh
-RUN chmod 777 /home/app/application-properties-replace.sh
-CMD ["sh", "-c", "/home/app/application-properties-replace.sh", "${datasource_url}", "${datasource_username}", "${datasource_password}", "${database_platform}", "${server_port}"]
+# COPY application-properties-replace.sh /home/app/application-properties-replace.sh
+# RUN chmod 777 /home/app/application-properties-replace.sh
+# RUN sh -c /home/app/application-properties-replace.sh ${datasource_url} ${datasource_username} ${datasource_password} ${database_platform} ${server_port}
 COPY pom.xml /home/app
 RUN mvn -f /home/app/pom.xml clean package
 
