@@ -21,4 +21,4 @@ addons:
     token:
       secure: "$SONAR_TOKEN"
 script:
-  - sonar-scanner
+  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io
