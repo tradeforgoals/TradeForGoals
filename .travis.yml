@@ -21,4 +21,4 @@ addons:
     token:
       secure: "$SONAR_TOKEN"
 script:
-  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io
+  - ./tradeforgoals/mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io
