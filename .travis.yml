@@ -1,0 +1,16 @@
+language: node_js
+
+node_js:
+  - "stable"
+
+services:
+  - docker
+
+before_deploy: 
+  - docker build --build-arg datasource_url="jdbc:mysql//bla" -t tradeforgoals.azurecr.io/tradeforgoals/backend ./tradeforgoals 
+
+deploy:
+  provider: script
+  script: bash ./tradeforgoals/docker_push
+  on:
+    branch: master
