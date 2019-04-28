@@ -14,3 +14,11 @@ deploy:
   script: bash ./tradeforgoals/docker_push
   on:
     branch: master
+
+addons:
+  sonarcloud:
+    organization: "tradeforgoals"
+    token:
+      secure: "$SONAR_TOKEN"
+script:
+  - sonar-scanner
