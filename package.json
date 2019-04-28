@@ -1,0 +1,19 @@
+{
+  "name": "tradeforgoals",
+  "version": "1.0.0",
+  "description": "Trade For Goals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tradeforgoals/TradeForGoals.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tradeforgoals/TradeForGoals/issues"
+  },
+  "homepage": "https://github.com/tradeforgoals/TradeForGoals#readme"
+}
