@@ -10,10 +10,12 @@ public class Product {
     private long id;
 
     private String title;
-    private String description;
+    private String shortDescription;
+    private String catergory;
+    private long currentOwner;
 
-    @Lob
-    private byte[] pictures;
+//    @Lob
+//    private byte[] pictures;
 
     @ManyToOne
     public Trade trade;
@@ -25,10 +27,10 @@ public class Product {
 
     }
 
-    public Product(String title, String description, byte[] pictures) {
+    public Product(String title, String description, String catergory, Lid lid) {
         this.title = title;
-        this.description = description;
-        this.pictures = pictures;
+        this.shortDescription = description;
+        this.currentOwner = lid.getId();
     }
 
     public long getId() {
@@ -44,20 +46,20 @@ public class Product {
     }
 
     public String getDescription() {
-        return description;
+        return shortDescription;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.shortDescription = description;
     }
 
-    public byte[] getPictures() {
-        return pictures;
-    }
-
-    public void setPictures(byte[] pictures) {
-        this.pictures = pictures;
-    }
+//    public byte[] getPictures() {
+//        return pictures;
+//    }
+//
+//    public void setPictures(byte[] pictures) {
+//        this.pictures = pictures;
+//    }
 
     public Advertisement getAdvertisement() {
         return advertisement;
@@ -66,4 +68,20 @@ public class Product {
     public void setAdvertisement(Advertisement advertisement) {
         this.advertisement = advertisement;
     }
+
+	public String getCatergorie() {
+		return catergory;
+	}
+
+	public void setCatergorie(String catergorie) {
+		this.catergory = catergorie;
+	}
+
+	public long getCurrentOwner() {
+		return currentOwner;
+	}
+
+	public void setCurrentOwner(long currentOwner) {
+		this.currentOwner = currentOwner;
+	}
 }
