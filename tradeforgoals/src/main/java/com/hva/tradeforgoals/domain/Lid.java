@@ -21,6 +21,7 @@ public class Lid {
     }
 
     public Lid(long id,String firstname, String lastname, String email, String zipcode, int housenumber) {
+    	this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;

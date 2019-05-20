@@ -20,10 +20,10 @@ public class Trade {
 
     }
 
-    public Trade(long providerId, long receiverId, LocalDate date) {
+    public Trade(long providerId, long receiverId) {
         this.providerId = providerId;
         this.receiverId = receiverId;
-        this.date = date;
+        this.date = LocalDate.now();
     }
 
     public long getId() {
