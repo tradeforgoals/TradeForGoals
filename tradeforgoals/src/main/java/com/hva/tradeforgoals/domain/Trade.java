@@ -1,5 +1,8 @@
 package com.hva.tradeforgoals.domain;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,14 +14,16 @@ public class Trade {
 
     private long providerId;
     private long receiverId;
+    private LocalDate date;
 
     public Trade(){
 
     }
 
-    public Trade(long providerId, long receiverId) {
+    public Trade(long providerId, long receiverId, LocalDate date) {
         this.providerId = providerId;
         this.receiverId = receiverId;
+        this.date = date;
     }
 
     public long getId() {
@@ -40,6 +45,14 @@ public class Trade {
     public void setReceiverId(long receiverId) {
         this.receiverId = receiverId;
     }
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
+	}
 
 }
 

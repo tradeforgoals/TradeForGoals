@@ -6,8 +6,8 @@ import java.util.Set;
 @Entity
 public class Lid {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     private String firstname;
@@ -20,7 +20,7 @@ public class Lid {
 
     }
 
-    public Lid(String firstname, String lastname, String email, String zipcode, int housenumber) {
+    public Lid(long id,String firstname, String lastname, String email, String zipcode, int housenumber) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -72,5 +72,8 @@ public class Lid {
         this.housenumber = housenumber;
     }
 
+    public void setId(long id) {
+    	this.id = id;
+    }
 }
 

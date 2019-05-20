@@ -31,6 +31,7 @@ public class Product {
         this.title = title;
         this.shortDescription = description;
         this.currentOwner = lid.getId();
+        this.catergory = catergory;
     }
 
     public long getId() {
