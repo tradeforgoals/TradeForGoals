@@ -44,7 +44,7 @@ public class productEndpoint {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateLid(@PathParam("id") Long id, Product product){
+    public Response updateProduct(@PathParam("id") Long id, Product product) {
 
         Product result = productService.findById(id);
 
@@ -66,7 +66,7 @@ public class productEndpoint {
 
     @DELETE
     @Path("{id}")
-    public Response deleteLid(@PathParam("id") Long id){
+    public Response deleteProduct(@PathParam("id") Long id) {
 
         Product product = productService.findById(id);
 

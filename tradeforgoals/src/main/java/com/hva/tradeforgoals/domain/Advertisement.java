@@ -3,17 +3,26 @@ package com.hva.tradeforgoals.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "Advertisement")
 public class Advertisement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "advertisement_id")
     private long id;
 
+    @Column(name = "title")
     private String title;
+    @Column(name = "description")
     private String description;
 
     @ManyToOne
-    private Lid lidId;
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
+    @JoinColumn(name = "product_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    private Product advertisementProduct;
 
     public Advertisement() {
 
@@ -44,11 +53,19 @@ public class Advertisement {
         this.description = description;
     }
 
-    public Lid getLidId() {
-        return lidId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setLidId(Lid lidId) {
-        this.lidId = lidId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Product getAdvertisementProduct() {
+        return advertisementProduct;
+    }
+
+    public void setAdvertisementProduct(Product advertisementProduct) {
+        this.advertisementProduct = advertisementProduct;
     }
 }

@@ -1,45 +1,36 @@
 package com.hva.tradeforgoals.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "trade")
 public class Trade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "trade_id")
     private long id;
 
-    private long providerId;
-    private long receiverId;
+    @OneToMany(mappedBy = "trade")
+    private Set<Product> tradingProducts;
 
     public Trade(){
 
-    }
-
-    public Trade(long providerId, long receiverId) {
-        this.providerId = providerId;
-        this.receiverId = receiverId;
     }
 
     public long getId() {
         return id;
     }
 
-    public long getProviderId() {
-        return providerId;
+    public Set<Product> getTradingProducts() {
+        return tradingProducts;
     }
 
-    public void setProviderId(long providerId) {
-        this.providerId = providerId;
+    public void setTradingProducts(Set<Product> tradingProducts) {
+        this.tradingProducts = tradingProducts;
     }
 
-    public long getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(long receiverId) {
-        this.receiverId = receiverId;
-    }
 
 }
 

@@ -27,7 +27,7 @@ public class tradeEndpoint {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findProduct(@PathParam("id")Long id){
+    public Response findTrade(@PathParam("id") Long id) {
         Trade trade = tradeService.findById(id);
         return Response.ok(trade).build();
     }
@@ -35,9 +35,9 @@ public class tradeEndpoint {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response postProduct(Trade trade){
-        Trade postedProduct = tradeService.save(trade);
-        return Response.accepted(postedProduct.getId()).build();
+    public Response postTrade(Trade trade) {
+        Trade postedTrade = tradeService.save(trade);
+        return Response.accepted(postedTrade.getId()).build();
     }
 
 }
