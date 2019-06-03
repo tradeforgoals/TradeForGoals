@@ -22,20 +22,21 @@ public class Product implements Serializable {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "trade_id")
-    public Trade trade;
+//    @ManyToOne
+//    @JoinColumn(name = "trade_id")
+//    public Trade trade;
 
-    @OneToOne
-    public Advertisement advertisement;
+//    @OneToOne
+//    public Advertisement advertisement;
 
     public Product() {
 
     }
 
-    public Product(String title, String description) {
+    public Product(String title, String description, Customer customer) {
         this.title = title;
         this.description = description;
+        this.customer = customer;
     }
 
     public long getId() {
@@ -58,13 +59,13 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public Advertisement getAdvertisement() {
-        return advertisement;
-    }
-
-    public void setAdvertisement(Advertisement advertisement) {
-        this.advertisement = advertisement;
-    }
+//    public Advertisement getAdvertisement() {
+//        return advertisement;
+//    }
+//
+//    public void setAdvertisement(Advertisement advertisement) {
+//        this.advertisement = advertisement;
+//    }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
