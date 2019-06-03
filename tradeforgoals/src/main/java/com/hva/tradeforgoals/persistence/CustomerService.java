@@ -19,7 +19,7 @@ public class CustomerService {
         return result;
     }
 
-    public Customer findById(long id) {
+    public Customer findById(String id) {
         Optional<Customer> customer = customerRepository.findById(id);
 
         if (customer.isPresent()) {
@@ -33,7 +33,7 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public void deleteById(long id) {
+    public void deleteById(String id) {
         customerRepository.deleteById(id);
     }
 }
