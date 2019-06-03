@@ -33,6 +33,14 @@ public class customerEndpoint {
         Customer customer = customerService.findById(id);
         return Response.ok(customer).build();
     }
+    
+    @GET
+    @Path("{id}/products")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findCustomerProducts(@PathParam("id") String id) {
+        Customer customer = customerService.findById(id);
+        return Response.ok(customer).build();
+    }
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)
