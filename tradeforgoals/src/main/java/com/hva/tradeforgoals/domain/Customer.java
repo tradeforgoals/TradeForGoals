@@ -41,7 +41,7 @@ public class Customer implements Serializable {
     private String street;
     
     @Column(name = "zipcode")
-    private String zipCode;
+    private String zipcode;
     
     @Column(name = "housenumber")
     private String houseNumber;
@@ -67,7 +67,7 @@ public class Customer implements Serializable {
         this.firstName = firstname;
         this.lastName = lastname;
         this.email = email;
-        this.zipCode = zipcode;
+        this.zipcode = zipcode;
         this.houseNumber = housenumber;
         this.id = id;
         this.products = new HashSet<>();
@@ -135,11 +135,11 @@ public class Customer implements Serializable {
 
 
     public String getZipcode() {
-        return zipCode;
+        return zipcode;
     }
 
     public void setZipcode(String zipcode) {
-        this.zipCode = zipcode;
+        this.zipcode = zipcode;
     }
 
     public String getHousenumber() {
