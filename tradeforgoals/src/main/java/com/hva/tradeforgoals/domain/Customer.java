@@ -54,10 +54,9 @@ public class Customer implements Serializable {
 
     @OneToMany(mappedBy = "customer")
     private Set<Product> products;
-    
-//
-//    @OneToMany(mappedBy = "customer")
-//    private Set<Advertisement> advertisements;
+
+    @OneToMany(mappedBy = "customer")
+    private Set<Advertisement> advertisements;
 
     public Customer() {
 
@@ -71,6 +70,7 @@ public class Customer implements Serializable {
         this.houseNumber = housenumber;
         this.id = id;
         this.products = new HashSet<>();
+        this.advertisements = new HashSet<>();
     }
 
     public String getId() {

@@ -20,9 +20,9 @@ public class Advertisement {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-//    @JoinColumn(name = "product_id")
-//    @OneToOne(cascade = CascadeType.ALL)
-//    private Product advertisementProduct;
+    @JoinColumn(name = "product_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    private Product advertisementProduct;
 
     public Advertisement() {
 
@@ -61,11 +61,11 @@ public class Advertisement {
         this.customer = customer;
     }
 
-//    public Product getAdvertisementProduct() {
-//        return advertisementProduct;
-//    }
-//
-//    public void setAdvertisementProduct(Product advertisementProduct) {
-//        this.advertisementProduct = advertisementProduct;
-//    }
+    public Product getAdvertisementProduct() {
+        return advertisementProduct;
+    }
+
+    public void setAdvertisementProduct(Product advertisementProduct) {
+        this.advertisementProduct = advertisementProduct;
+    }
 }
