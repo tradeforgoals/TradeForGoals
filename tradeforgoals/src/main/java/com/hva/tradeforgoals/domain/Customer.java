@@ -27,11 +27,11 @@ public class Customer implements Serializable {
     @Column(name = "housenumber")
     private String housenumber;
 
-    @OneToMany(mappedBy = "customer")
-    private Set<Product> products;
-
-    @OneToMany(mappedBy = "customer")
-    private Set<Advertisement> advertisements;
+//    @OneToMany(mappedBy = "customer")
+//    private Set<Product> products;
+//
+//    @OneToMany(mappedBy = "customer")
+//    private Set<Advertisement> advertisements;
 
     public Customer() {
 
@@ -90,20 +90,20 @@ public class Customer implements Serializable {
         this.housenumber = housenumber;
     }
 
-    public Set<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Set<Product> products) {
-        this.products = products;
-    }
-
-    public Set<Advertisement> getAdvertisements() {
-        return advertisements;
-    }
-
-    public void setAdvertisements(Set<Advertisement> advertisements) {
-        this.advertisements = advertisements;
-    }
+//    public Set<Product> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(Set<Product> products) {
+//        this.products = products;
+//    }
+//
+//    public Set<Advertisement> getAdvertisements() {
+//        return advertisements;
+//    }
+//
+//    public void setAdvertisements(Set<Advertisement> advertisements) {
+//        this.advertisements = advertisements;
+//    }
 }
 
