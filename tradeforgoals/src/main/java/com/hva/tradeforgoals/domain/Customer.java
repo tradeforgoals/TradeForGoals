@@ -2,6 +2,7 @@ package com.hva.tradeforgoals.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,6 +19,9 @@ public class Customer implements Serializable {
     @Column(name = "last_name")
     private String lastname;
 
+    @Column(name = "display_name")
+    private String displayname;
+
     @Column(name = "email")
     private String email;
 
@@ -27,8 +31,8 @@ public class Customer implements Serializable {
     @Column(name = "housenumber")
     private String housenumber;
 
-//    @OneToMany(mappedBy = "customer")
-//    private Set<Product> products;
+    @OneToMany(mappedBy = "customer")
+    private Set<Product> products;
 //
 //    @OneToMany(mappedBy = "customer")
 //    private Set<Advertisement> advertisements;
@@ -44,6 +48,7 @@ public class Customer implements Serializable {
         this.zipcode = zipcode;
         this.housenumber = housenumber;
         this.id = id;
+        this.products = new HashSet<>();
     }
 
     public String getId() {
@@ -90,13 +95,13 @@ public class Customer implements Serializable {
         this.housenumber = housenumber;
     }
 
-//    public Set<Product> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(Set<Product> products) {
-//        this.products = products;
-//    }
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
+    }
 //
 //    public Set<Advertisement> getAdvertisements() {
 //        return advertisements;
