@@ -33,6 +33,7 @@ public class customerEndpoint {
         Customer customer = customerService.findById(id);
         return Response.ok(customer).build();
     }
+    
 
     @POST
     @Produces(MediaType.TEXT_PLAIN)

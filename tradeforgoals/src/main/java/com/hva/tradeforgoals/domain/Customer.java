@@ -9,9 +9,8 @@ import java.util.Set;
 public class Customer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "customer_id")
-    private long id;
+    private String id;
 
     @Column(name = "first_name")
     private String firstname;
@@ -38,6 +37,15 @@ public class Customer implements Serializable {
 
     }
 
+    public Customer(String firstname, String lastname, String email, String zipcode, int housenumber, String id) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.zipcode = zipcode;
+        this.housenumber = housenumber;
+        this.id = id;
+    }
+    
     public Customer(String firstname, String lastname, String email, String zipcode, int housenumber) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -46,7 +54,7 @@ public class Customer implements Serializable {
         this.housenumber = housenumber;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
