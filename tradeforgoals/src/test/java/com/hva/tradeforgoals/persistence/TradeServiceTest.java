@@ -2,7 +2,6 @@ package com.hva.tradeforgoals.persistence;
 
 import com.hva.tradeforgoals.domain.Product;
 import com.hva.tradeforgoals.domain.Trade;
-import org.assertj.core.util.Arrays;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,7 +33,7 @@ public class TradeServiceTest {
 
     @Test
     public void findById() {
-        Trade trade = creeerTrade();
+        Trade trade = createTrade();
         when(tradeRepositoryMock.findById(FAKE_ID)).thenReturn(Optional.of(trade));
 
         Trade trade1 = objectUnderTest.findById(FAKE_ID);
@@ -46,7 +45,26 @@ public class TradeServiceTest {
 
     }
 
-    private Trade creeerTrade() {
+    @Test
+    public void testSave() {
+        Trade trade = createTrade();
+        objectUnderTest.save(trade);
+
+        assertNotNull(trade);
+    }
+
+    @Test
+    public void testFindAll() {
+        Trade trade1 = createTrade();
+        Trade trade2 = createTrade();
+        trade1.setId(1L);
+        trade2.setId(2L);
+
+        Iterable<Trade> trades = objectUnderTest.findAll();
+        assertNotNull(trades);
+    }
+
+    private Trade createTrade() {
 
         Product product1 = new Product();
         Product product2 = new Product();

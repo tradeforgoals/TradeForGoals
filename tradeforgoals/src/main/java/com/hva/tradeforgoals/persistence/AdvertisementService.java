@@ -1,7 +1,6 @@
 package com.hva.tradeforgoals.persistence;
 
 import com.hva.tradeforgoals.domain.Advertisement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,12 +10,14 @@ import java.util.Optional;
 @Transactional
 public class AdvertisementService {
 
-    @Autowired
     private AdvertisementRepository advertisementRepository;
 
+    public void setAdvertisementRepository(AdvertisementRepository advertisementRepository) {
+        this.advertisementRepository = advertisementRepository;
+    }
+
     public Iterable<Advertisement> findAll(){
-        Iterable<Advertisement> result = advertisementRepository.findAll();
-        return result;
+        return advertisementRepository.findAll();
     }
 
     public Advertisement findById(long id){

@@ -1,6 +1,7 @@
 package com.hva.tradeforgoals.api;
 
 import com.hva.tradeforgoals.domain.Customer;
+import com.hva.tradeforgoals.domain.EmptyResponse;
 import com.hva.tradeforgoals.persistence.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,18 @@ public class customerEndpoint {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findCustomer(@PathParam("id") String id) {
+        Customer customer = customerService.findById(id);
+
+        if (customer == null) {
+            return Response.ok(new EmptyResponse()).build();
+        }
+        return Response.ok(customer).build();
+    }
+
+    @GET
+    @Path("{id}/products")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response findCustomerProducts(@PathParam("id") String id) {
         Customer customer = customerService.findById(id);
         return Response.ok(customer).build();
     }

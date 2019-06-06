@@ -41,8 +41,8 @@ public class CustomerServiceTest {
         Customer customerTest = objectUnderTest.findById(fakeID);
 
         assertNotNull(customerTest);
-        assertEquals("Test", testCustomer.getFirstname());
-        assertEquals("lastnameTest", testCustomer.getLastname());
+        assertEquals("Jorik", testCustomer.getFirstname());
+        assertEquals("Barten", testCustomer.getLastname());
 
         Customer customerTest2 = objectUnderTest.findById("8");
         assertNull(customerTest2);
@@ -71,7 +71,7 @@ public class CustomerServiceTest {
         customer.setFirstname("Jorik");
         customer.setLastname("Barten");
         customer.setEmail("een@email.com");
-        customer.setHousenumber(123);
+        customer.setHousenumber("123");
         customer.setZipcode("4567PW");
         customer.setAdvertisements(null);
         customer.setProducts(null);

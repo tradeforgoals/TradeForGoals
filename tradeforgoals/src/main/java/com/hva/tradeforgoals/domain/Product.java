@@ -33,9 +33,10 @@ public class Product implements Serializable {
 
     }
 
-    public Product(String title, String description) {
+    public Product(String title, String description, Customer customer) {
         this.title = title;
         this.description = description;
+        this.customer = customer;
     }
 
     public long getId() {

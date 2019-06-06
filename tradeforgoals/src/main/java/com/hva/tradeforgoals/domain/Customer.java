@@ -2,6 +2,8 @@ package com.hva.tradeforgoals.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -9,24 +11,47 @@ import java.util.Set;
 public class Customer implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "customer_id")
     private String id;
 
     @Column(name = "first_name")
-    private String firstname;
+    private String firstName;
+
+    @Column(name = "middle_name")
+    private String middleName;
 
     @Column(name = "last_name")
-    private String lastname;
+    private String lastName;
+
+    @Column(name = "display_name")
+    private String displayName;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "street")
+    private String street;
 
     @Column(name = "zipcode")
     private String zipcode;
 
     @Column(name = "housenumber")
-    private int housenumber;
+    private String houseNumber;
+
+    @Column(name = "photo_url")
+    private String photoUrl;
+
+    @Column(name = "providerid")
+    private String providerId;
 
     @OneToMany(mappedBy = "customer")
     private Set<Product> products;
@@ -38,12 +63,15 @@ public class Customer implements Serializable {
 
     }
 
-    public Customer(String firstname, String lastname, String email, String zipcode, int housenumber) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    public Customer(String firstname, String lastname, String email, String zipcode, String housenumber, String id) {
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.email = email;
         this.zipcode = zipcode;
-        this.housenumber = housenumber;
+        this.houseNumber = housenumber;
+        this.id = id;
+        this.products = new HashSet<>();
+        this.advertisements = new HashSet<>();
     }
 
     public String getId() {
@@ -55,19 +83,51 @@ public class Customer implements Serializable {
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
+    }
+
+    public String getMiddlename() {
+        return middleName;
+    }
+
+    public void setMiddlename(String middlename) {
+        this.middleName = middlename;
+    }
+
+    public String getDisplayname() {
+        return displayName;
+    }
+
+    public void setDisplayname(String displayname) {
+        this.displayName = displayname;
+    }
+
+    public String getPhonenumber() {
+        return phoneNumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phoneNumber = phonenumber;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phonenumber) {
+        this.phoneNumber = phonenumber;
     }
 
     public String getEmail() {
@@ -86,12 +146,36 @@ public class Customer implements Serializable {
         this.zipcode = zipcode;
     }
 
-    public int getHousenumber() {
-        return housenumber;
+    public String getHousenumber() {
+        return houseNumber;
     }
 
-    public void setHousenumber(int housenumber) {
-        this.housenumber = housenumber;
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setHousenumber(String housenumber) {
+        this.houseNumber = housenumber;
     }
 
     public Set<Product> getProducts() {
