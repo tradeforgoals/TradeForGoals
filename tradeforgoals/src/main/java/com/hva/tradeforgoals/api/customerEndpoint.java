@@ -29,7 +29,7 @@ public class customerEndpoint {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findCustomer(@PathParam("id") Long id) {
+    public Response findCustomer(@PathParam("id") String id) {
         Customer customer = customerService.findById(id);
         return Response.ok(customer).build();
     }
@@ -45,14 +45,14 @@ public class customerEndpoint {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateCustomer(@PathParam("id") Long id, Customer customer) {
+    public Response updateCustomer(@PathParam("id") String id, Customer customer) {
         Customer result = customerService.findById(id);
 
         if (customer == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        if (customer.getId() != result.getId()) {
+        if (customer.getId().equals(result.getId())) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
@@ -71,7 +71,7 @@ public class customerEndpoint {
 
     @DELETE
     @Path("{id}")
-    public Response deleteCustomer(@PathParam("id") Long id) {
+    public Response deleteCustomer(@PathParam("id") String id) {
 
         Customer customer = customerService.findById(id);
 

@@ -23,6 +23,10 @@ public class Trade {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public Set<Product> getTradingProducts() {
         return tradingProducts;
     }
@@ -31,6 +35,8 @@ public class Trade {
         this.tradingProducts = tradingProducts;
     }
 
-
+    public void setTradingProducts() {
+    }
 }
+
 

@@ -11,13 +11,15 @@ import java.util.Optional;
 @Transactional
 public class ProductService {
 
-    @Autowired
     private ProductRepository productRepository;
 
-    public Iterable<Product> findAll(){
-        Iterable<Product> result = productRepository.findAll();
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
-        return result;
+    public Iterable<Product> findAll(){
+
+        return productRepository.findAll();
     }
 
     public Product findById(Long id){

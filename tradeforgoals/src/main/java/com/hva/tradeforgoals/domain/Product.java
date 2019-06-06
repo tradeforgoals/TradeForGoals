@@ -42,6 +42,14 @@ public class Product implements Serializable {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setTrade(Trade trade) {
+        this.trade = trade;
+    }
+
     public String getTitle() {
         return title;
     }

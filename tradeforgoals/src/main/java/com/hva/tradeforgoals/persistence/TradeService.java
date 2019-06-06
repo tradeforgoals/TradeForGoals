@@ -11,12 +11,14 @@ import java.util.Optional;
 @Transactional
 public class TradeService {
 
-    @Autowired
     private TradeRepository tradeRepository;
 
+    public void setTradeRepository(TradeRepository tradeRepository) {
+        this.tradeRepository = tradeRepository;
+    }
+
     public Iterable<Trade> findAll(){
-        Iterable<Trade> trades = tradeRepository.findAll();
-        return trades;
+        return tradeRepository.findAll();
     }
 
     public Trade findById(Long id){

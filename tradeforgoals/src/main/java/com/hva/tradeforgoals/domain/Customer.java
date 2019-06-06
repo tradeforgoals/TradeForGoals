@@ -11,7 +11,7 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "customer_id")
-    private long id;
+    private String id;
 
     @Column(name = "first_name")
     private String firstname;
@@ -46,8 +46,12 @@ public class Customer implements Serializable {
         this.housenumber = housenumber;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstname() {
