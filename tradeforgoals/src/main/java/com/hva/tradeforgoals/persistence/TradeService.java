@@ -11,6 +11,7 @@ import java.util.Optional;
 @Transactional
 public class TradeService {
 
+    @Autowired
     private TradeRepository tradeRepository;
 
     public void setTradeRepository(TradeRepository tradeRepository) {

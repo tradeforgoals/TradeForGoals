@@ -11,6 +11,7 @@ import java.util.Optional;
 @Transactional
 public class ProductService {
 
+    @Autowired
     private ProductRepository productRepository;
 
     public void setProductRepository(ProductRepository productRepository) {
