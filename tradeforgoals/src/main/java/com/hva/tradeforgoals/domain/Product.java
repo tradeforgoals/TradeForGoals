@@ -1,5 +1,7 @@
 package com.hva.tradeforgoals.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,9 +20,10 @@ public class Product implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JsonIgnore // avoid infinite recursion
+    public Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "trade_id")
@@ -75,7 +78,15 @@ public class Product implements Serializable {
         this.advertisement = advertisement;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Trade getTrade() {
+        return trade;
     }
 }

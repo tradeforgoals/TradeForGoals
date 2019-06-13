@@ -1,9 +1,12 @@
 package com.hva.tradeforgoals.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -53,8 +56,8 @@ public class Customer implements Serializable {
     @Column(name = "providerid")
     private String providerId;
 
-    @OneToMany(mappedBy = "customer")
-    private Set<Product> products;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
+    private List<Product> products;
 
     @OneToMany(mappedBy = "customer")
     private Set<Advertisement> advertisements;
@@ -70,7 +73,7 @@ public class Customer implements Serializable {
         this.zipcode = zipcode;
         this.houseNumber = housenumber;
         this.id = id;
-        this.products = new HashSet<>();
+        this.products = new ArrayList<Product>();
         this.advertisements = new HashSet<>();
     }
 
@@ -82,52 +85,36 @@ public class Customer implements Serializable {
         this.id = id;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstName = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getMiddlename() {
+    public String getMiddleName() {
         return middleName;
     }
 
-    public void setMiddlename(String middlename) {
-        this.middleName = middlename;
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
     }
 
-    public String getDisplayname() {
-        return displayName;
-    }
-
-    public void setDisplayname(String displayname) {
-        this.displayName = displayname;
-    }
-
-    public String getPhonenumber() {
-        return phoneNumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phoneNumber = phonenumber;
-    }
-
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setPhoneNumber(String phonenumber) {
-        this.phoneNumber = phonenumber;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public String getEmail() {
@@ -138,16 +125,12 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    public String getZipcode() {
-        return zipcode;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    public String getHousenumber() {
-        return houseNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getCity() {
@@ -174,15 +157,43 @@ public class Customer implements Serializable {
         this.street = street;
     }
 
-    public void setHousenumber(String housenumber) {
-        this.houseNumber = housenumber;
+    public String getZipcode() {
+        return zipcode;
     }
 
-    public Set<Product> getProducts() {
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(String houseNumber) {
+        this.houseNumber = houseNumber;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getProviderId() {
+        return providerId;
+    }
+
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(Set<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

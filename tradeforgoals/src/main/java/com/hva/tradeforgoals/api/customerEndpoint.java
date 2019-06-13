@@ -65,13 +65,11 @@ public class customerEndpoint {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
-        if (customer.getId().equals(result.getId())) {
+        if (!(customer.getId().equals(result.getId()))) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-        if (!(customer.getFirstname().equals(result.getFirstname())) || !(customer.getLastname().equals(result.getLastname())) ||
-                !(customer.getEmail().equals(result.getEmail())) || !(customer.getZipcode().equals(result.getZipcode())) ||
-                customer.getHousenumber() != result.getHousenumber()) {
+        if (!(customer.equals(result))) {
 
             customerService.save(customer);
             return Response.ok().build();
