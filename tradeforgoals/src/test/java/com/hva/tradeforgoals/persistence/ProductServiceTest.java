@@ -54,7 +54,7 @@ public class ProductServiceTest {
         assertNotNull(testProduct);
         assertEquals(testProduct.getId(), product.getId());
         assertEquals("Title", testProduct.getTitle());
-        assertEquals("Description", testProduct.getDescription());
+        assertEquals("Description", testProduct.getShortDescription());
 
         Product product2 = objectUnderTest.findById(3L);
         assertNull(product2);
@@ -78,7 +78,7 @@ public class ProductServiceTest {
         Product product = new Product();
         product.setId(fake_ID);
         product.setTitle("Title");
-        product.setDescription("Description");
+        product.setShortDescription("Description");
 
         return product;
     }
