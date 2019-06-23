@@ -55,7 +55,7 @@ public class productEndpoint {
         if (product.getId() != result.getId()) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        if (!(product.getTitle().equals(result.getTitle())) || !(product.getDescription().equals(result.getDescription()))){
+        if (!(product.getTitle().equals(result.getTitle())) || !(product.getShortDescription().equals(result.getShortDescription()))){
             productService.save(product);
             return Response.ok().build();
 
