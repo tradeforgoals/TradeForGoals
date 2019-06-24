@@ -13,8 +13,11 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
     private long id;
+    
+    @Column(name = "customer_id")
+    private String customerId;
 
-    @Column(name = "title")
+	@Column(name = "title")
     private String title;
 
     @Column(name = "description")
@@ -25,11 +28,12 @@ public class Product implements Serializable {
 
 	@Column(name = "category")
     private String category;
+	
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
-    @JsonIgnore // avoid infinite recursion
-    public Customer customer;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "customer_id")
+//    @JsonIgnore // avoid infinite recursion
+//    public Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "trade_id")
@@ -39,13 +43,6 @@ public class Product implements Serializable {
     public Advertisement advertisement;
 
     public Product() {
-
-    }
-
-    public Product(String title, String description, Customer customer) {
-        this.title = title;
-        this.shortDescription = description;
-        this.customer = customer;
     }
 
     public long getId() {
@@ -56,6 +53,14 @@ public class Product implements Serializable {
         this.id = id;
     }
 
+    public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+	
     public void setTrade(Trade trade) {
         this.trade = trade;
     }
@@ -100,13 +105,13 @@ public class Product implements Serializable {
         this.advertisement = advertisement;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     public Trade getTrade() {
         return trade;

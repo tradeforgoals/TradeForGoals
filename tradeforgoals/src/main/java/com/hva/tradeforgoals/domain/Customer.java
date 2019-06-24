@@ -65,18 +65,6 @@ public class Customer implements Serializable {
     public Customer() {
 
     }
-
-    public Customer(String firstname, String lastname, String email, String zipcode, String housenumber, String id) {
-        this.firstName = firstname;
-        this.lastName = lastname;
-        this.email = email;
-        this.zipcode = zipcode;
-        this.houseNumber = housenumber;
-        this.id = id;
-        this.products = new ArrayList<Product>();
-        this.advertisements = new HashSet<>();
-    }
-
     public String getId() {
         return id;
     }
