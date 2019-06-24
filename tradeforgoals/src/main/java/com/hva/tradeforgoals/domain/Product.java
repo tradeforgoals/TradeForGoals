@@ -13,9 +13,6 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "product_id")
     private long id;
-    
-    @Column(name = "customer_id")
-    private String customerId;
 
 	@Column(name = "title")
     private String title;
@@ -30,10 +27,10 @@ public class Product implements Serializable {
     private String category;
 	
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "customer_id")
-//    @JsonIgnore // avoid infinite recursion
-//    public Customer customer;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    @JsonIgnore // avoid infinite recursion
+    public Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "trade_id")
@@ -53,14 +50,6 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(String customerId) {
-		this.customerId = customerId;
-	}
-	
     public void setTrade(Trade trade) {
         this.trade = trade;
     }
@@ -105,13 +94,13 @@ public class Product implements Serializable {
         this.advertisement = advertisement;
     }
 
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public Trade getTrade() {
         return trade;
